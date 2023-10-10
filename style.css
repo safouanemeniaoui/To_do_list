@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main-color: #009688;
+}
+body {
+  font-family: "Exo", sans-serif;
+}
+.parent {
+  padding-top: 50px;
+  position: relative;
+  background-color: black;
+  background-image: url(images/im1.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+.parent .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #0000009d;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #eee;
+  position: relative;
+}
+.special {
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--main-color);
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.special::placeholder {
+  text-transform: capitalize;
+}
+.container > p {
+  text-transform: capitalize;
+  font-size: 14px;
+  display: none;
+  margin-bottom: 20px;
+}
+.container > p span {
+  font-weight: bold;
+  color: red;
+}
+.container > p:last-of-type {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+}
+.timer {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+}
+[name="options"] {
+  padding: 10px 20px;
+  width: 40%;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--main-color);
+}
+[type="reset"],
+[type="submit"] {
+  padding: 5px 15px;
+  text-transform: capitalize;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+[type="reset"] {
+  background-color: red;
+  display: none;
+}
+[type="submit"] {
+  background-color: var(--main-color);
+}
+.count-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.count-down .minutes,
+.count-down .seconds {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--main-color);
+}
+.count-down .minutes p:first-of-type,
+.count-down .seconds p:first-of-type {
+  font-size: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--main-color);
+}
+.count-down .minutes p:last-of-type,
+.count-down .seconds p:last-of-type {
+  padding-top: 10px;
+  text-transform: capitalize;
+}
+/* list of activity css*/
+
+.list {
+  background-color: white;
+  padding: 80px 20px 10px;
+  position: relative;
+}
+.list::before {
+  content: "to do list";
+  text-transform: capitalize;
+  padding: 10px 20px;
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  background-color: var(--main-color);
+  color: white;
+}
+.list::after {
+  content: "";
+  position: absolute;
+  top: 54px;
+  left: -7px;
+  border-width: 7px;
+  border-style: solid;
+  transform: rotate(45deg);
+  border-color: transparent transparent #00665c transparent;
+}
+.activity {
+  padding: 20px;
+  background-color: #eee;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.activity input {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 1px solid #00665c;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.activity input:checked::after {
+  content: "";
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #00665c;
+  border-radius: 3px;
+}
+.activity input:checked + label {
+  text-decoration: line-through;
+}
+.activity label {
+  flex-shrink: 5;
+  width: 80%;
+}
+.activity .btn {
+  width: 15%;
+  text-transform: capitalize;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.activity span {
+  display: none;
+}
+@media (max-width: 600px) {
+  .activity .btn {
+    display: none;
+  }
+  .activity span {
+    display: block;
+    color: red;
+    cursor: pointer;
+  }
+  .timer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  [name="options"] {
+    width: 60%;
+    font-size: 16px;
+  }
+}
