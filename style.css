@@ -35,6 +35,12 @@ body {
   background-color: #eee;
   position: relative;
 }
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 .special {
   padding: 20px 30px;
   margin-bottom: 20px;
@@ -48,6 +54,12 @@ body {
 }
 .special::placeholder {
   text-transform: capitalize;
+}
+.send-icon {
+  margin-bottom: 20px;
+  transform: translateX(-30px);
+  cursor: pointer;
+  color: var(--main-color);
 }
 .container > p {
   text-transform: capitalize;

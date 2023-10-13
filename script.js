@@ -1,5 +1,6 @@
 let textTyped = document.querySelector(".special");
 let myList = document.querySelector(".list");
+let sendIcon = document.querySelector(".send-icon");
 let table = [];
 
 function createElement(text, id = null, check = null) {
@@ -71,6 +72,13 @@ textTyped.onkeypress = function (e) {
   }
 };
 
+sendIcon.onclick = function () {
+  if (textTyped.value != "") {
+    createElement(textTyped.value);
+  }
+  textTyped.value = "";
+};
+
 document.addEventListener("click", function (e) {
   if (
     e.target.className === "btn" ||
@@ -118,7 +126,6 @@ let choice = 0;
 
 option.onchange = function (e) {
   choice = e.target.value;
-  console.log(choice);
 };
 
 reset.onclick = function () {
@@ -138,7 +145,6 @@ start.onclick = function () {
   let counter = setInterval(() => {
     let now = new Date();
     let diff = date - now.getTime();
-    console.log(diff);
     let minute = Math.floor(diff / (60 * 1000));
     let second = Math.floor((diff % (60 * 1000)) / 1000);
     munites.innerHTML = minute < 10 ? `0${minute}` : minute;
